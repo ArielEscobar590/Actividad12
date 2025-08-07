@@ -28,14 +28,19 @@ try:
                 print("No puede ingresar entregas de forma negativa")
             else:
                 break
-        zona = input("La zona en la que trabaja el Repartidor: ")
+        while True:
+            zona = input("La zona en la que trabaja el Repartidor: ")
+            if zona == "":
+                print("No puede dejar en blanco la zona")
+            else:
+                break
 
         repartidores[nombre] = {
             'zona': zona,
             'entregas': entregas
         }
 
-    resultado = quick_sort(list(repartidores.keys()))
+    resultado = quick_sort(list(repartidores.values(['entregas'])))
 
     print("\n--- Repartidores ordenados por entregas ---")
     for nombre in resultado:
